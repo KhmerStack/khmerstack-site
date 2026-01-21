@@ -1,0 +1,307 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+ 
+:root {
+  /* User-defined custom colors (preserved) */
+  --bg: #0b0f17;
+  --panel: #111827;
+  --card: #0f172a;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: rgba(255, 255, 255, 0.10);
+  --accent: #60a5fa;
+  --accent2: #34d399;
+  --danger: #fb7185;
+
+  /* User-defined shadcn-like colors (take precedence over default) */
+  --background: #0b0f17;
+  --foreground: #e5e7eb;
+  --card-bg: rgba(15, 23, 42, 0.65);
+  --card-foreground: #e5e7eb;
+  --popover: #111827;
+  --popover-foreground: #e5e7eb;
+  --primary: #60a5fa;
+  --primary-foreground: #0b0f17;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #e5e7eb;
+  --muted-bg: rgba(255, 255, 255, 0.04);
+  --muted-foreground: #9ca3af;
+  --accent-bg: rgba(96, 165, 250, 0.16);
+  --accent-foreground: #e5e7eb;
+  --destructive: #fb7185;
+  --destructive-foreground: #0b0f17;
+  --border-color: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.06);
+  --ring: #60a5fa;
+  --radius: 18px;
+
+  /* Additional default shadcn/ui colors */
+  --card: var(--card-bg); /* Map existing card to card-bg */
+  --card-foreground: var(--card-foreground);
+  --muted: var(--muted-bg); /* Map existing muted to muted-bg */
+  --accent: var(--accent-bg); /* Map existing accent to accent-bg */
+  --border: var(--border-color); /* Map existing border to border-color */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  /* Default radius is 0.625rem from shadcn, but user has 18px.
+     We keep the user's --radius, and define shadcn-specific radius variations
+     relative to the user's --radius as per shadcn's original intent for scaling. */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+ 
+.dark {
+  /* Default shadcn/ui dark theme colors (user did not define a dark root) */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1); /* Added from diff */
+  --color-chart-2: var(--chart-2); /* Added from diff */
+  --color-chart-3: var(--chart-3); /* Added from diff */
+  --color-chart-4: var(--chart-4); /* Added from diff */
+  --color-chart-5: var(--chart-5); /* Added from diff */
+  /* User's custom radius calculation is preserved, but shadcn's relative calc is adapted */
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar); /* Added from diff */
+  --color-sidebar-foreground: var(--sidebar-foreground); /* Added from diff */
+  --color-sidebar-primary: var(--sidebar-primary); /* Added from diff */
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground); /* Added from diff */
+  --color-sidebar-accent: var(--sidebar-accent); /* Added from diff */
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground); /* Added from diff */
+  --color-sidebar-border: var(--sidebar-border); /* Added from diff */
+  --color-sidebar-ring: var(--sidebar-ring); /* Added from diff */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* User's custom background gradient is preserved */
+    background:
+      radial-gradient(1100px 600px at 10% 10%, rgba(96, 165, 250, 0.20), transparent 60%),
+      radial-gradient(900px 500px at 90% 20%, rgba(52, 211, 153, 0.16), transparent 60%),
+      radial-gradient(900px 600px at 50% 90%, rgba(251, 113, 133, 0.12), transparent 55%),
+      var(--bg);
+    min-height: 100vh;
+  }
+}
+
+/* Cambodia Flag Colors */
+.flag-stripe-blue {
+  background: #032EA1;
+}
+.flag-stripe-red {
+  background: #E00025;
+}
+
+/* Button Styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  background: rgba(96, 165, 250, 0.16);
+  color: #e5e7eb;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  background: rgba(52, 211, 153, 0.14);
+  color: #e5e7eb;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.btn-green:hover {
+  transform: translateY(-2px);
+}
+.btn-green:active {
+  transform: translateY(0);
+}
+
+/* Panel & Card Styles */
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(17, 24, 39, 0.70);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
+}
+
+.tool-card {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
+}
+
+/* Badge Styles */
+.badge {
+  font-size: 11px;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(229, 231, 235, 0.92);
+  white-space: nowrap;
+}
+
+.badge-blue {
+  font-size: 11px;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(96, 165, 250, 0.40);
+  background: rgba(96, 165, 250, 0.12);
+  color: rgba(229, 231, 235, 0.92);
+  white-space: nowrap;
+}
+
+.badge-green {
+  font-size: 11px;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: rgba(52, 211, 153, 0.12);
+  color: rgba(229, 231, 235, 0.92);
+  white-space: nowrap;
+}
+
+.badge-pink {
+  font-size: 11px;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(251, 113, 133, 0.35);
+  background: rgba(251, 113, 133, 0.10);
+  color: rgba(229, 231, 235, 0.92);
+  white-space: nowrap;
+}
+
+/* Code Block */
+.code-block {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(229, 231, 235, 0.92);
+  overflow: auto;
+  white-space: pre-wrap;
+}
