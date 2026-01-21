@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KhmerStack — Open-source tools from Cambodia</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <meta name="description" content="KhmerStack builds open-source tools for developers: ClipVault, APIs, and more."/>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="./index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>KhmerStack</div>
+      </a>
+      <div class="navlinks">
+        <a class="active" href="./index.html">Home</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./roadmap.html">Roadmap</a>
+        <a href="./contribute.html">Contribute</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="panel">
+          <h1 class="h1">Open-source tools built by Khmer developers.</h1>
+          <div class="sub">
+            We ship small, practical apps that are stable, well-documented, and easy to contribute to.
+            The first flagship tool is <b>ClipVault</b> (Quantum Clipboard).
+          </div>
+
+          <div class="pills">
+            <div class="pill">Cambodia-first</div>
+            <div class="pill">Docs + releases</div>
+            <div class="pill">Community-friendly PRs</div>
+            <div class="pill">Multi-tool platform</div>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="./projects.html">Explore Projects</a>
+            <a class="btn green" href="./contribute.html">How to Contribute</a>
+            <a class="btn" href="https://github.com/YOUR_ORG">GitHub Organization</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="h2">Quick facts</div>
+          <div class="kv">
+            <div class="item">
+              <div class="k">Flagship</div>
+              <div class="v">ClipVault</div>
+            </div>
+            <div class="item">
+              <div class="k">Focus</div>
+              <div class="v">Developer utilities</div>
+            </div>
+            <div class="item">
+              <div class="k">Release style</div>
+              <div class="v">Versioned changelog</div>
+            </div>
+            <div class="item">
+              <div class="k">Next step</div>
+              <div class="v">Firebase sync</div>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+          <div class="small">Tip: Replace <b>YOUR_ORG</b> links with your real GitHub org.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="h2">What we build</div>
+      <div class="muted">Tools that feel “native” and remove daily friction for researchers and engineers.</div>
+
+      <div class="cards" style="margin-top:12px;">
+        <div class="card">
+          <div class="title">ClipVault (Quantum Clipboard)</div>
+          <div class="desc">
+            Clipboard history popup for macOS/Electron with theming, tagging, fast search, and a stable UX.
+          </div>
+          <div class="badges">
+            <span class="badge blue">Electron</span>
+            <span class="badge">React</span>
+            <span class="badge green">Stable releases</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="title">Khmer Postman APIs</div>
+          <div class="desc">
+            Public Postman collections and API examples designed for learning and reuse in Khmer communities.
+          </div>
+          <div class="badges">
+            <span class="badge">Postman</span>
+            <span class="badge green">Docs</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="title">Next Tools (coming)</div>
+          <div class="desc">
+            A shared account system (Firebase) so multiple tools can sync settings and data.
+          </div>
+          <div class="badges">
+            <span class="badge blue">Firebase</span>
+            <span class="badge pink">Roadmap-driven</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="panel">
+          <div class="h2">Release philosophy</div>
+          <div class="muted">
+            We keep releases small and stable. Every version has a clear goal, scope, and changelog.
+          </div>
+          <ul class="list">
+            <li>v0.1.x = local-first features & UI stability</li>
+            <li>v0.2.x = Firebase auth + sync (step-by-step)</li>
+            <li>v0.3.x = main website + multi-tool launcher</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="h2">How people can help</div>
+          <div class="muted">
+            We welcome PRs. We also label beginner-friendly issues and provide clear contribution rules.
+          </div>
+          <div class="cta" style="margin-top:12px;">
+            <a class="btn primary" href="./contribute.html">Contribution Guide</a>
+            <a class="btn" href="https://github.com/YOUR_ORG/quantum-clipboard/issues">Open Issues</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> KhmerStack. Built with GitHub Pages.</div>
+      <div class="small">Maintained by Muyleang Ing. Replace links before publishing.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
